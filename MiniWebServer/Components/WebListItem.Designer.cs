@@ -32,6 +32,7 @@
             this.lblPath = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStart
@@ -75,11 +76,22 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(88, 56);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(61, 31);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // WebListItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblPath);
@@ -97,5 +109,6 @@
         private System.Windows.Forms.Label lblPath;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

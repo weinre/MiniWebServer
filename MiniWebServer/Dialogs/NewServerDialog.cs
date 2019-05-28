@@ -13,6 +13,15 @@ namespace MiniWebServer.Dialogs
         {
             InitializeComponent();
             _settingStorage = new SettingStorage();
+            numericUpDown1.Enabled = true;
+        }
+
+        public NewServerDialog(Setting setting): this()
+        {
+            txtName.Text = setting.Name;
+            txtPath.Text = setting.Path;
+            numericUpDown1.Value = setting.Port;
+            numericUpDown1.Enabled = false;
         }
 
         public string ServerName
@@ -49,7 +58,7 @@ namespace MiniWebServer.Dialogs
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (_settingStorage.Contains((int)numericUpDown1.Value))
+            if (numericUpDown1.Enabled && _settingStorage.Contains((int)numericUpDown1.Value))
             {
                 MessageBox.Show("Duplicate port", "Error");
                 return;

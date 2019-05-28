@@ -45,6 +45,20 @@ namespace MiniWebServer.Core
             return true;
         }
 
+        public bool Update(Setting item)
+        {
+            var setting = DataList.First(x => x.Port == item.Port);
+            if(setting == null)
+            {
+                return false;
+            }
+
+            setting.Name = item.Name;
+            setting.Path = item.Path;
+            Save();
+            return true;
+        }
+
         public void Remove(Setting item)
         {
             DataList.Remove(item);

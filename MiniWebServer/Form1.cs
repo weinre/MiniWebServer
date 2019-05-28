@@ -73,7 +73,28 @@ namespace MiniWebServer
             var item = new WebListItem(setting);            
             item.Width = flowLayoutPanel1.Width - 25;
             item.OnRemove += Item_OnRemove;
+            item.OnUpdate += Item_OnUpdate;
             flowLayoutPanel1.Controls.Add(item);
+        }
+
+        private void Item_OnUpdate(WebListItem sender)
+        {
+            using (var dialog = new NewServerDialog(sender.Setting))
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    var setting = new Setting
+                    {
+                        Name = dialog.ServerName,
+                        Path = dialog.Path,
+                        Port = dialog.Port
+                    };
+                    if (_settingStorage.Update(setting))
+                    {
+                        sender.UpdateSetting(setting);
+                    }
+                }
+            }
         }
 
         private void Item_OnRemove(WebListItem item)
