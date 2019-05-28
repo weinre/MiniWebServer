@@ -65,7 +65,10 @@ namespace MiniWebServer.Components
 
         private void btnRemove_Click(object sender, System.EventArgs e)
         {
-            OnRemove(this);
+            if(MessageBox.Show("Are you sure you want to remove this item?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                OnRemove(this);
+            }
         }
 
         private void btnUpdate_Click(object sender, System.EventArgs e)

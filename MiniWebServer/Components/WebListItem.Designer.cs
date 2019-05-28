@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebListItem));
             this.btnStart = new System.Windows.Forms.Button();
             this.lblPath = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btnStart
@@ -68,21 +71,23 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(21, 55);
+            this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
+            this.btnRemove.Location = new System.Drawing.Point(64, 55);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(61, 31);
+            this.btnRemove.Size = new System.Drawing.Size(35, 31);
             this.btnRemove.TabIndex = 6;
-            this.btnRemove.Text = "Remove";
+            this.toolTip1.SetToolTip(this.btnRemove, "Remove");
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(88, 56);
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.Location = new System.Drawing.Point(22, 55);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(61, 31);
+            this.btnUpdate.Size = new System.Drawing.Size(36, 31);
             this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Update";
+            this.toolTip1.SetToolTip(this.btnUpdate, "Edit");
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -110,5 +115,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
