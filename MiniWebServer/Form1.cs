@@ -9,12 +9,12 @@ namespace MiniWebServer
 {
     public partial class Form1 : Form
     {
-        private readonly SettingStorage<Setting> _settingStorage;
+        private readonly SettingStorage _settingStorage;
 
         public Form1()
         {
             InitializeComponent();
-            _settingStorage = new SettingStorage<Setting>();
+            _settingStorage = new SettingStorage();
         }
 
         protected override void OnLoad(EventArgs e)
@@ -31,7 +31,7 @@ namespace MiniWebServer
 
         private void LoadServers()
         {
-            var servers = _settingStorage.Load();
+            var servers = _settingStorage.GetServers();
             foreach (var server in servers)
             {
                 AddServer(server);
@@ -62,8 +62,8 @@ namespace MiniWebServer
                         Path = dialog.Path,
                         Port = dialog.Port
                     };
-                    AddServer(setting);
                     _settingStorage.Add(setting);
+                    AddServer(setting);
                 }
             }
         }
@@ -76,9 +76,8 @@ namespace MiniWebServer
             flowLayoutPanel1.Controls.Add(item);
         }
 
-        private void Item_OnRemove(object sender)
+        private void Item_OnRemove(WebListItem item)
         {
-            var item = sender as WebListItem;
             item.Stop();
             flowLayoutPanel1.Controls.Remove(item);
             _settingStorage.Remove(item.Setting);

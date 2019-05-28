@@ -13,7 +13,7 @@ namespace MiniWebServer.Components
 
         private readonly MyHttpServer _server;
 
-        public delegate void RemoveEventHandler(object sender);
+        public delegate void RemoveEventHandler(WebListItem sender);
 
         public event RemoveEventHandler OnRemove;
 
