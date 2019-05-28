@@ -131,7 +131,7 @@ namespace MiniWebServer.Core
                 }
             }
 
-            return filename;
+            return Path.Combine(RootDirectory, filename.TrimStart('/'));
         }
     }
 }

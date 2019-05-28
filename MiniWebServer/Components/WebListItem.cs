@@ -1,24 +1,32 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 using MiniWebServer.Core;
+using MiniWebServer.Core.Model;
 
 namespace MiniWebServer.Components
 {
     public partial class WebListItem : UserControl
     {
-        private Color _stoppingColor = Color.LightCoral;
+        private readonly Color _stoppingColor = Color.LightCoral;
 
-        private Color _runningColor = Color.LightGreen;
+        private readonly Color _runningColor = Color.LightGreen;
 
         private readonly MyHttpServer _server;
 
-        public WebListItem(string name, string path, int port)
+        public delegate void RemoveEventHandler(object sender);
+
+        public event RemoveEventHandler OnRemove;
+
+        public WebListItem(Setting setting)
         {
             InitializeComponent();
-            lblName.Text = name;
-            lblPath.Text = port + "  " + path;
-            _server = new MyHttpServer(path, port);
+            Setting = setting;
+            lblName.Text = Setting.Name;
+            lblPath.Text = Setting.Port + "  " + Setting.Path;
+            _server = new MyHttpServer(Setting.Path, Setting.Port);
         }
+
+        public Setting Setting { get; private set; }
 
         public void Stop()
         {
@@ -39,6 +47,11 @@ namespace MiniWebServer.Components
                 btnStart.Text = "Stop";
                 this.BackColor = _runningColor;
             }
+        }
+
+        private void btnRemove_Click(object sender, System.EventArgs e)
+        {
+            OnRemove(this);
         }
     }
 }

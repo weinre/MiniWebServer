@@ -32,5 +32,12 @@ namespace MiniWebServer.Core
             dataList.Add(data);
             Save(dataList);
         }
+
+        public void Remove(T data)
+        {
+            var dataList = Load().ToList();
+            dataList.Remove(data);
+            Save(dataList);
+        }
     }
 }

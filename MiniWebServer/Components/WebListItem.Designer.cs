@@ -31,13 +31,15 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.lblPath = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(21, 50);
+            this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStart.Location = new System.Drawing.Point(308, 56);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(100, 31);
+            this.btnStart.Size = new System.Drawing.Size(61, 31);
             this.btnStart.TabIndex = 3;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -63,11 +65,22 @@
             this.lblName.TabIndex = 5;
             this.lblName.Text = "Name";
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(21, 55);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(61, 31);
+            this.btnRemove.TabIndex = 6;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // WebListItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblPath);
             this.Controls.Add(this.btnStart);
@@ -83,5 +96,6 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label lblPath;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
